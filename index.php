@@ -29,7 +29,7 @@
 				if ( ( $err == "" ) && ( empty( $_POST['revision'] ) ) ) :
 			?>
 				<div class="contact_info">
-					<p>ご依頼内容を、以下にご入力下さい。のちほど、各担当者よりご連絡いたします。</p>
+					<p>ご依頼内容を、以下にご入力下さい。のちほど担当者よりご連絡いたします。</p>
 					<p>お急ぎの際はお電話にてお問い合わせください。</p>
 					<p class="contact_phone">TEL:03-xxxx-xxxx</p>
 				</div>
