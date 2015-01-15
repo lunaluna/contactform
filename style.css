@@ -594,11 +594,9 @@ input:-ms-input-placeholder {
 	margin: 0 auto;
 }
 
-/*
 .top_linkbutton button:hover {
 	cursor: pointer;
 }
-*/
 
 .top_linkbutton button {
 	font-size: 16px;
