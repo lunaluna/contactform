@@ -11,7 +11,6 @@ $err = "";
 //未入力チェック
 if ( $err == "" ) {
 
-	// if ( !isset( $_POST['subject'] ) ) $_POST['subject'] = null;
 	if ( $_POST['subject'] == "" ) { $err .= "<li>※お問い合わせ項目が選択されていません。</li>\n"; }
 
 	if ( $_POST['selectbox'] == "" ) { $err .= "<li>※セレクトボックスが選択されていません。</li>\n"; }

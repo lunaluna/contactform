@@ -7,8 +7,6 @@ include( "inc/mail_settings.php" );
 	if ( !isset( $select_checkbox ) ) $select_checkbox = null;
 session_start();
 
-// var_dump($_SESSION);
-
 //++++++++++機種依存文字対応++++++++++
 
 
@@ -18,7 +16,6 @@ mb_internal_encoding( "UTF-8" );
 
 //チェックボックスの値を配列から取得
 $checkbox = $_SESSION['checkbox'];
-// $count_checkbox = count( $checkbox );
 foreach ( $checkbox as $value ) {
 	$value = htmlspecialchars( $value, ENT_QUOTES, "UTF-8" );
 	$select_checkbox .= $value . "、";
@@ -59,49 +56,7 @@ $detail = replaceStrKishuizon( $detail );
 
 // ============ クライアント様向け詳細内容(フォームの入力項目)ここから ============
 
-// $check_count = count( $_POST['checkbox'] );
 
-/*
-$prof_format = "
-お問い合わせ項目 ： %s
-セレクトボックス ： %s
-チェックボックス ：";
-
-for ( $i = 0; $i < count( $_SESSION['checkbox'] ); $i++ ) {
-	$prof_format .= " %s";
-}
-
-$prof_format .= "
-御社名 ： %s
-お名前 ： %s 様
-ご住所 ： %s %s
-お電話番号 ： %s
-FAX ： %s
-メールアドレス ： %s
-お問い合わせ内容 ： %s
-";
-
-$prof_vars = htmlspecialchars( $_SESSION['subject'], ENT_QUOTES, "UTF-8" ) . ",";
-$prof_vars .= htmlspecialchars( $_SESSION['selectbox'], ENT_QUOTES, "UTF-8" ) . ",";
-
-	htmlspecialchars( $_SESSION['checkbox'][0], ENT_QUOTES, "UTF-8" ),
-	htmlspecialchars( $_SESSION['checkbox'][1], ENT_QUOTES, "UTF-8" ),
-	htmlspecialchars( $_SESSION['checkbox'][2], ENT_QUOTES, "UTF-8" ),
-
-for ( $i = 0; $i < count( $_SESSION['checkbox'] ); $i++ ) {
-	$prof_vars .= htmlspecialchars( $_SESSION['checkbox'][$i], ENT_QUOTES, "UTF-8" ) . ",";
-}
-$prof_vars .= $company . ",";
-$prof_vars .= $full_name . ",";
-$prof_vars .= htmlspecialchars( $_SESSION['pref'], ENT_QUOTES, "UTF-8" ) . ",";
-$prof_vars .= $address . ",";
-$prof_vars .= htmlspecialchars( $_SESSION['tel'], ENT_QUOTES, "UTF-8" ) . ",";
-$prof_vars .= htmlspecialchars( $_SESSION['fax'], ENT_QUOTES, "UTF-8" ) . ",";
-$prof_vars .= htmlspecialchars( $_SESSION['mail'], ENT_QUOTES, "UTF-8" ) . ",";
-$prof_vars .= $detail;
-
-$profile = sprintf( $prof_format, $prof_vars );
-*/
 
 $prof_format = "
 お問い合わせ項目 ： %s
@@ -120,7 +75,6 @@ $profile = sprintf($prof_format,
 	htmlspecialchars( $_SESSION['subject'], ENT_QUOTES, "UTF-8" ),
 	htmlspecialchars( $_SESSION['selectbox'], ENT_QUOTES, "UTF-8" ),
 	$checkbox_list,
-	// htmlspecialchars( $_SESSION['checkbox'][2], ENT_QUOTES, "UTF-8" ),
 	$company,
 	$full_name,
 	htmlspecialchars( $_SESSION['pref'], ENT_QUOTES, "UTF-8" ),
@@ -130,10 +84,6 @@ $profile = sprintf($prof_format,
 	htmlspecialchars( $_POST['mail'], ENT_QUOTES, "UTF-8" ),
 	$detail
 );
-
-// var_dump($prof_format);
-
-// var_dump($prof_vars);
 
 
 
@@ -153,8 +103,6 @@ $dstr = date(" Y/m/d(D) H:i:s");			//日付
 $dstr = htmlspecialchars( $dstr, ENT_QUOTES, "UTF-8" );
 $addr = $_SERVER['REMOTE_ADDR'];			//アドレス
 $addr = htmlspecialchars( $addr, ENT_QUOTES, "UTF-8" );
-// $proxy = $_SERVER['HTTP_FORWARDED'];		//proxy
-// $proxy = htmlspecialchars( $proxy, ENT_QUOTES, "UTF-8" );
 $agent = $_SERVER['HTTP_USER_AGENT'];		//agent
 $agent = htmlspecialchars( $agent, ENT_QUOTES, "UTF-8" );
 
@@ -213,7 +161,6 @@ $user_mailto = htmlspecialchars( $user_mailto, ENT_QUOTES, "UTF-8" );
 $user_mailto = mb_convert_encoding( $user_mailto, "UTF-8", "auto" );
 $admin_subject = "【".$admin_name."】ホームページよりお問い合わせ";
 $admin_subject = mb_convert_encoding( $admin_subject, "UTF-8", "auto" );
-// $admin_header = "受信日時：$dstr\nIPアドレス：$addr\nプロキシ：$proxy\nユーザーエージェント：$agent\n\n";
 $admin_header = "受信日時：$dstr\nIPアドレス：$addr\nユーザーエージェント：$agent\n\n";
 $admin_header = htmlspecialchars( $admin_header, ENT_QUOTES, "UTF-8" );
 $admin_from = mb_encode_mimeheader( mb_convert_encoding( $full_name."様","UTF-8","auto" ) )."<".$user_mailto.">";
