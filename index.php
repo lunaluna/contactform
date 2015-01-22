@@ -32,6 +32,7 @@
 <meta name="description" content="">
 
 <link rel="stylesheet" href="./style.css" media="screen">
+<link rel="stylesheet" href="./css/validationEngine.jquery.css">
 
 <title>お問い合わせ | 問い合わせフォームサンプル</title>
 </head>
