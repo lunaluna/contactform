@@ -4,6 +4,7 @@ if (!$_POST) {
 	exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -38,61 +39,71 @@ if (!$_POST) {
 				</div>
 				<div class="area_contactform">
 					<h1 class="title_contactformtext">お問い合わせフォーム</h1>
-					<div class="form_table form_confirm">
-						<dl>
-							<dt>お問い合わせ項目</dt>
-							<dd><?php echo htmlspecialchars( $_POST['subject'], ENT_QUOTES, "UTF-8" ); ?></dd>
-						</dl>
-						<dl>
-							<dt>セレクトボックス</dt>
-							<dd><?php echo htmlspecialchars( $_POST['selectbox'], ENT_QUOTES, "UTF-8" ); ?></dd>
-						</dl>
-						<dl>
-							<dt>チェックボックス</dt>
-							<dd>
-								<?php
-									if ( isset( $_POST['checkbox'] ) ) {
-										for ( $i = 0; $i < count( $_POST['checkbox'] ); $i++ ) {
-											if ( $i == ( ( count( $_POST['checkbox'] ) ) - 1 ) ) {
-												echo htmlspecialchars( $_POST['checkbox'][$i], ENT_QUOTES, "UTF-8" );
-											} else {
-												echo htmlspecialchars( $_POST['checkbox'][$i], ENT_QUOTES, "UTF-8" ) ."、 ";
+					<form method="post" action="./contact_formmail.php" name="contact_formmail" class="contact_formmail">
+						<div class="form_table form_confirm">
+							<dl>
+								<dt>お問い合わせ項目</dt>
+								<dd><?php echo htmlspecialchars( $_POST['subject'], ENT_QUOTES, "UTF-8" ); ?></dd>
+							</dl>
+							<dl>
+								<dt>セレクトボックス</dt>
+								<dd><?php echo htmlspecialchars( $_POST['selectbox'], ENT_QUOTES, "UTF-8" ); ?></dd>
+							</dl>
+							<dl>
+								<dt>チェックボックス</dt>
+								<dd>
+									<?php
+										if ( isset( $_POST['checkbox'] ) ) {
+											for ( $i = 0; $i < count( $_POST['checkbox'] ); $i++ ) {
+												if ( $i == ( ( count( $_POST['checkbox'] ) ) - 1 ) ) {
+													echo htmlspecialchars( $_POST['checkbox'][$i], ENT_QUOTES, "UTF-8" );
+												} else {
+													echo htmlspecialchars( $_POST['checkbox'][$i], ENT_QUOTES, "UTF-8" ) ."、 ";
+												}
 											}
 										}
-									}
-								?>
-							</dd>
-						</dl>
-						<dl>
-							<dt>御社名</dt>
-							<dd><?php echo htmlspecialchars( $_POST['company'], ENT_QUOTES, "UTF-8" ); ?></dd>
-						</dl>
-						<dl>
-							<dt>お名前</dt>
-							<dd><?php echo htmlspecialchars( $_POST['full_name'], ENT_QUOTES, "UTF-8" ); ?> 様</dd>
-						</dl>
-						<dl>
-							<dt>ご住所</dt>
-							<dd><?php echo htmlspecialchars( $_POST['pref'], ENT_QUOTES, "UTF-8" ); echo htmlspecialchars( $_POST['address'], ENT_QUOTES, "UTF-8" ); ?></dd>
-						</dl>
-						<dl>
-							<dt>お電話番号</dt>
-							<dd><?php echo htmlspecialchars( $_POST['tel'], ENT_QUOTES, "UTF-8" ); ?></dd>
-						</dl>
-						<dl>
-							<dt>FAX</dt>
-							<dd><?php echo htmlspecialchars( $_POST['fax'], ENT_QUOTES, "UTF-8" ); ?></dd>
-						</dl>
-						<dl>
-							<dt>メールアドレス</dt>
-							<dd><?php echo htmlspecialchars( $_POST['mail'], ENT_QUOTES, "UTF-8" ); ?></dd>
-						</dl>
-						<dl>
-							<dt>お問い合わせ内容</dt>
-							<dd><?php echo nl2br( htmlspecialchars( $_POST['detail'], ENT_QUOTES, "UTF-8" ) ); ?></dd>
-						</dl>
-					</div>
-					<div id="btn_submitarea" class="clear-fix">
+									?>
+								</dd>
+							</dl>
+							<dl>
+								<dt>御社名</dt>
+								<dd><?php echo htmlspecialchars( $_POST['company'], ENT_QUOTES, "UTF-8" ); ?></dd>
+							</dl>
+							<dl>
+								<dt>お名前</dt>
+								<dd><?php echo htmlspecialchars( $_POST['full_name'], ENT_QUOTES, "UTF-8" ); ?> 様</dd>
+							</dl>
+							<dl>
+								<dt>ご住所</dt>
+								<dd><?php echo htmlspecialchars( $_POST['pref'], ENT_QUOTES, "UTF-8" ); echo htmlspecialchars( $_POST['address'], ENT_QUOTES, "UTF-8" ); ?></dd>
+							</dl>
+							<dl>
+								<dt>お電話番号</dt>
+								<dd><?php echo htmlspecialchars( $_POST['tel'], ENT_QUOTES, "UTF-8" ); ?></dd>
+							</dl>
+							<dl>
+								<dt>FAX</dt>
+								<dd><?php echo htmlspecialchars( $_POST['fax'], ENT_QUOTES, "UTF-8" ); ?></dd>
+							</dl>
+							<dl>
+								<dt>メールアドレス</dt>
+								<dd><?php echo htmlspecialchars( $_POST['mail'], ENT_QUOTES, "UTF-8" ); ?></dd>
+							</dl>
+							<dl>
+								<dt>お問い合わせ内容</dt>
+								<dd><?php echo nl2br( htmlspecialchars( $_POST['detail'], ENT_QUOTES, "UTF-8" ) ); ?></dd>
+							</dl>
+						</div>
+						<div id="btn_submitarea" class="clear-fix">
+							<div id="contact_back">
+								<a href="javascript:history.back();"><button>&laquo; 入力ページへ戻る</button></a>
+							</div>
+							<div id="contact_formmail">
+								<button type="submit">&raquo; 入力内容を送信する</button>
+							</div>
+						</div>
+					</form>
+<?php /*
 						<form method="post" action="./index.php" name="contact_back" class="contact_back">
 							<input type="hidden" id="subject" name="subject" value="<?php echo htmlspecialchars( $_POST['subject'], ENT_QUOTES, "UTF-8" ); ?>">
 							<input type="hidden" id="selectbox" name="selectbox" value="<?php echo htmlspecialchars( $_POST['selectbox'], ENT_QUOTES, "UTF-8" ); ?>">
@@ -131,7 +142,7 @@ if (!$_POST) {
 								<button type="submit">&raquo; 入力内容を送信する</button>
 							</div>
 						</form>
-					</div>
+*/ ?>
 				</div>
 			</div>
 		</div>
