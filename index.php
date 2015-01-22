@@ -1,23 +1,22 @@
 <?php
 	// 変数の宣言エラーが出る場合にコメントアウトを外す
 	if ( !isset( $err ) ) $err = null;
-/*
-	if ( !isset( $_POST['subject'] ) ) $_POST['subject'] = null;
-	if ( !isset( $_POST['selectbox'] ) ) $_POST['selectbox'] = null;
-	if ( !isset( $_POST['checkbox'] ) ) $_POST['checkbox'] = null;
+	if ( !isset( $_SESSION ) ) $_SESSION = null;
+	if ( !isset( $_SESSION['subject'] ) ) $_SESSION['subject'] = null;
+	if ( !isset( $_SESSION['selectbox'] ) ) $_SESSION['selectbox'] = null;
+	if ( !isset( $_SESSION['checkbox'] ) ) $_SESSION['checkbox'] = null;
 	if ( !isset( $checked1 ) ) $checked1 = null;
 	if ( !isset( $checked2 ) ) $checked2 = null;
 	if ( !isset( $checked3 ) ) $checked3 = null;
-	if ( !isset( $_POST['company'] ) ) $_POST['company'] = null;
-	if ( !isset( $_POST['full_name'] ) ) $_POST['full_name'] = null;
-	if ( !isset( $_POST['pref'] ) ) $_POST['pref'] = null;
-	if ( !isset( $_POST['address'] ) ) $_POST['address'] = null;
-	if ( !isset( $_POST['tel'] ) ) $_POST['tel'] = null;
-	if ( !isset( $_POST['fax'] ) ) $_POST['fax'] = null;
-	if ( !isset( $_POST['mail'] ) ) $_POST['mail'] = null;
-	if ( !isset( $_POST['mail_confirm'] ) ) $_POST['mail_confirm'] = null;
-	if ( !isset( $_POST['detail'] ) ) $_POST['detail'] = null;
-*/
+	if ( !isset( $_SESSION['company'] ) ) $_SESSION['company'] = null;
+	if ( !isset( $_SESSION['full_name'] ) ) $_SESSION['full_name'] = null;
+	if ( !isset( $_SESSION['pref'] ) ) $_SESSION['pref'] = null;
+	if ( !isset( $_SESSION['address'] ) ) $_SESSION['address'] = null;
+	if ( !isset( $_SESSION['tel'] ) ) $_SESSION['tel'] = null;
+	if ( !isset( $_SESSION['fax'] ) ) $_SESSION['fax'] = null;
+	if ( !isset( $_SESSION['mail'] ) ) $_SESSION['mail'] = null;
+	if ( !isset( $_SESSION['mail_confirm'] ) ) $_SESSION['mail_confirm'] = null;
+	if ( !isset( $_SESSION['detail'] ) ) $_SESSION['detail'] = null;
 ?>
 
 <!DOCTYPE html>
