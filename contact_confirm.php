@@ -1,10 +1,8 @@
 <?php
-/*
-if (!$_SESSION) {
+if ( !$_POST ) {
 	header( 'Location: ./index.php' );
 	exit;
 }
-*/
 session_start();
 $_SESSION = $_POST;
 ?>
