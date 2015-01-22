@@ -1,10 +1,10 @@
 <?php
+/*
 if ( !$_POST ) {
 	header( 'Location: ./index.php' );
 	exit;
 }
-session_start();
-$_SESSION = $_POST;
+*/
 ?>
 
 <!DOCTYPE html>
