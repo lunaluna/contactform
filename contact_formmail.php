@@ -5,7 +5,7 @@ if ( $_SESSION['full_name'] == "" ) {
 	exit;
 }
 include( "inc/mail_settings.php" );
-	if ( !isset( $select_checkbox ) ) $select_checkbox = null;
+if ( !isset( $select_checkbox ) ) $select_checkbox = null;
 
 //++++++++++機種依存文字対応++++++++++
 

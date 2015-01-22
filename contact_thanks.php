@@ -29,9 +29,9 @@
 		<div class="mainarea">
 			<div class="section contents_contact">
 				<div class="contact_innercontents">
-					<p class="mb_20"><strong>ご入力いただきましてありがとうございました。</strong><br />お問い合わせを送信致しました。</p>
-					<p class="mb_20">折り返し、ご登録いただいたメールアドレス宛てに<br>確認メールが届きます。<br />また、お送りいただきましたお問い合わせには、<br />数日中に弊社の担当者よりご連絡させていただきます。</p>
-					<p class="mb_20">お急ぎの方は下記までご連絡ください。<br /><strong>TEL: 03-xxxx-xxxx<br>FAX: 03-xxxx-xxxx</strong></p>
+					<p><strong>ご入力いただきましてありがとうございました。</strong><br />お問い合わせを送信致しました。</p>
+					<p>折り返し、ご登録いただいたメールアドレス宛てに<br>確認メールが届きます。<br />また、お送りいただきましたお問い合わせには、<br />数日中に弊社の担当者よりご連絡させていただきます。</p>
+					<p>お急ぎの方は下記までご連絡ください。<br /><strong>TEL: 03-xxxx-xxxx<br>FAX: 03-xxxx-xxxx</strong></p>
 					<p class="top_linkbutton">
 						<a href="./index.php"><button>トップページへ戻る</button></a>
 					</p>
