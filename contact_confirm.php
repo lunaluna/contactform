@@ -1,10 +1,9 @@
 <?php
-if ( !$_POST ) {
+session_start();
+if ( $_SESSION['full_name'] == "" ) {
 	header( 'Location: ./index.php' );
 	exit;
 }
-session_start();
-$_SESSION = $_POST;
 ?>
 
 <!DOCTYPE html>
