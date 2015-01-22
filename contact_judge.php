@@ -1,12 +1,12 @@
 <?php
+session_start();
+$_SESSION = $_POST;
 
-if ( !$_POST || !$_SESSION['full_name'] == "" ) {
+if ( !$_SESSION['full_name'] == "" ) {
 	header( 'Location: ./index.php' );
 	exit;
 }
 
-session_start();
-$_SESSION = $_POST;
 
 //各種変数初期化
 $err = "";

@@ -1,9 +1,8 @@
 <?php
-session_start();
-if ( $_SESSION['full_name'] == "" ) {
-	header( 'Location: ./index.php' );
-	exit;
-}
+// if ( !$_SESSION['full_name'] == "" ) {
+// 	header( 'Location: ./index.php' );
+// 	exit;
+// }
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +12,7 @@ if ( $_SESSION['full_name'] == "" ) {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 
 <meta name="keywords" content="">
 <meta name="description" content="">
