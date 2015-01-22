@@ -66,7 +66,7 @@
 
 					<form method="post" action="contact_judge.php" id="contact_form">
 						<div class="form_table">
-							<dl>
+							<dl class="clearfix">
 								<dt><span class="required">お問い合わせ項目</span></dt>
 								<dd>
 									<ul>
@@ -77,7 +77,7 @@
 									</ul>
 								</dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt><span class="required">セレクトボックス</span></dt>
 								<dd>
 									<p>
@@ -91,10 +91,10 @@
 									</p>
 								</dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt><span>チェックボックス</span></dt>
 								<dd>
-									<ul class="clear-fix">
+									<ul class="clearfix">
 
 									<?php
 										if ( isset( $_SESSION['checkbox'] ) ) {
@@ -122,19 +122,19 @@
 									</ul>
 								</dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt><span>御社名</span></dt>
 								<dd>
 									<input type="text" id="company" name="company" value="<?php echo ( $_SESSION['company'] ); ?>" maxlength="255" placeholder="(例） 株式会社 ◯◯◯◯" title="(例） 株式会社 ◯◯◯◯">
 								</dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt><span class="required">お名前</span></dt>
 								<dd>
 									<input type="text" id="full_name" name="full_name" value="<?php echo ( $_SESSION['full_name'] ); ?>" maxlength="255" placeholder="(例） 山田 太郎" title="(例） 山田 太郎" class="validate[required]">
 								</dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt><span>ご住所</span></dt>
 								<dd>
 
@@ -142,37 +142,37 @@
 
 								</dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt><span>&nbsp;</span></dt>
 								<dd>
 									<input type="text" id="address" name="address" value="<?php echo ( $_SESSION['address'] ); ?>" maxlength="255" placeholder="(例） 港区六本木6－10－1 六本木ヒルズ森タワー 53F" title="(例） 港区六本木6－10－1 六本木ヒルズ森タワー 53F" class="longarea">
 								</dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt><span class="required">お電話番号</span></dt>
 								<dd>
 									<input type="text" id="tel" name="tel" value="<?php echo ( $_SESSION['tel'] ); ?>" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb validate[required,phone]">
 								</dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt><span>FAX</span></dt>
 								<dd>
 									<input type="text" id="fax" name="fax" value="<?php echo ( $_SESSION['fax'] ); ?>" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb validate[optional,custom[phone]]">
 								</dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt><span class="required">メールアドレス</span></dt>
 								<dd>
 									<input type="text" id="mail" name="mail" value="<?php echo ( $_SESSION['mail'] ); ?>" maxlength="255" placeholder="(例) sample@example.com" title="(例) sample@example.com" style="ime-mode: disabled;" class="longarea restrict_mb validate[required,custom[email]]">
 								</dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt><span class="required">メールアドレス（確認用）</span></dt>
 								<dd>
 									<input type="text" id="mail_confirm" name="mail_confirm" value="<?php echo ( $_SESSION['mail_confirm'] ); ?>" maxlength="255" placeholder="(例) sample@example.com" title="(例) sample@example.com" style="ime-mode: disabled;" class="longarea restrict_mb validate[required,custom[email],equals[mail]]">
 								</dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt><span class="required">お問い合わせ内容</span></dt>
 								<dd>
 									<textarea name="detail" id="detail"class="validate[required]"><?php echo ( $_SESSION['detail'] ); ?></textarea>

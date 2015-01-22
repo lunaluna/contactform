@@ -22,7 +22,7 @@
 				<h2 class="header_logo"><a href="./index.php">問い合わせフォームサンプル</a></h2>
 			</div>
 		</div>
-		<ul class="breadclumb">
+		<ul class="breadclumb clearfix">
 			<li><a href="./index.php">TOP</a></li>
 			<li>お問い合わせ完了画面</li>
 		</ul>

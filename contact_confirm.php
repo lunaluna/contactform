@@ -22,7 +22,7 @@
 				<h2 class="header_logo"><a href="./index.php">問い合わせフォームサンプル</a></h2>
 			</div>
 		</div>
-		<ul class="breadclumb">
+		<ul class="breadclumb clearfix">
 			<li><a href="./index.php">TOP</a></li>
 			<li>お問い合わせ確認画面</li>
 		</ul>
@@ -35,15 +35,15 @@
 					<h1 class="title_contactformtext">お問い合わせフォーム</h1>
 					<form method="post" action="./contact_formmail.php" name="contact_formmail" class="contact_formmail">
 						<div class="form_table form_confirm">
-							<dl>
+							<dl class="clearfix">
 								<dt>お問い合わせ項目</dt>
 								<dd><?php echo htmlspecialchars( $_SESSION['subject'], ENT_QUOTES, "UTF-8" ); ?></dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt>セレクトボックス</dt>
 								<dd><?php echo htmlspecialchars( $_SESSION['selectbox'], ENT_QUOTES, "UTF-8" ); ?></dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt>チェックボックス</dt>
 								<dd>
 									<?php
@@ -59,31 +59,31 @@
 									?>
 								</dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt>御社名</dt>
 								<dd><?php echo htmlspecialchars( $_SESSION['company'], ENT_QUOTES, "UTF-8" ); ?></dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt>お名前</dt>
 								<dd><?php echo htmlspecialchars( $_SESSION['full_name'], ENT_QUOTES, "UTF-8" ); ?> 様</dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt>ご住所</dt>
 								<dd><?php echo htmlspecialchars( $_SESSION['pref'], ENT_QUOTES, "UTF-8" ); echo htmlspecialchars( $_SESSION['address'], ENT_QUOTES, "UTF-8" ); ?></dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt>お電話番号</dt>
 								<dd><?php echo htmlspecialchars( $_SESSION['tel'], ENT_QUOTES, "UTF-8" ); ?></dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt>FAX</dt>
 								<dd><?php echo htmlspecialchars( $_SESSION['fax'], ENT_QUOTES, "UTF-8" ); ?></dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt>メールアドレス</dt>
 								<dd><?php echo htmlspecialchars( $_SESSION['mail'], ENT_QUOTES, "UTF-8" ); ?></dd>
 							</dl>
-							<dl>
+							<dl class="clearfix">
 								<dt>お問い合わせ内容</dt>
 								<dd><?php echo nl2br( htmlspecialchars( $_SESSION['detail'], ENT_QUOTES, "UTF-8" ) ); ?></dd>
 							</dl>

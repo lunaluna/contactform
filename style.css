@@ -277,9 +277,6 @@ input:-ms-input-placeholder {
 .breadclumb
 ============================*/
 .breadclumb {
-	position: relative;
-	overflow: hidden;
-	* z-index: 1;
 	width: 98%;
 	max-width: 980px;
 	margin: 5px auto 64px;
@@ -440,9 +437,6 @@ input:-ms-input-placeholder {
 }
 
 .form_table dl {
-	position: relative;
-	overflow: hidden;
-	* z-index: 1;
 	width: 100%;
 	margin-bottom: 20px;
 }
@@ -471,9 +465,6 @@ input:-ms-input-placeholder {
 }
 
 .form_table dd ul {
-	position: relative;
-	overflow: hidden;
-	* z-index: 1;
 	font-size: 12px;
 	padding-top: 10px;
 }
