@@ -1,7 +1,7 @@
 # contactform
 contactform practice
 
-### branch ace-form_validation2
+### branch ace-form_ajaxzip
 
 ## target
 
@@ -11,4 +11,4 @@ contactform practice
 - 送信エラー時の処理は？
 
 ### URL
-http://lunalunadesign.info/contactform/
+http://lunalunadesign.info/contact_ajaxzip/
