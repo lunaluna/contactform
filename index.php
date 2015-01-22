@@ -63,16 +63,16 @@
 					</div>
 				<?php endif; ?>
 
-					<form method="post" action="contact_judge.php" id="contact_judge">
+					<form method="post" action="contact_judge.php" id="contact_form">
 						<div class="form_table">
 							<dl>
 								<dt><span class="required">お問い合わせ項目</span></dt>
 								<dd>
 									<ul>
-										<li><input type="radio" id="subject1" name="subject" value="選択肢1" <?php if ( $_SESSION['subject'] == "選択肢1" ) { ?> checked="checked"<?php } ?>>&nbsp;<label for="subject1">選択肢1</label></li>
-										<li><input type="radio" id="subject2" name="subject" value="選択肢2" <?php if ( $_SESSION['subject'] == "選択肢2" ) { ?> checked="checked"<?php } ?>>&nbsp;<label for="subject2">選択肢2</label></li>
-										<li><input type="radio" id="subject3" name="subject" value="選択肢3" <?php if ( $_SESSION['subject'] == "選択肢3" ) { ?> checked="checked"<?php } ?>>&nbsp;<label for="subject3">選択肢3</label></li>
-										<li><input type="radio" id="subject4" name="subject" value="選択肢4" <?php if ( $_SESSION['subject'] == "選択肢4" ) { ?> checked="checked"<?php } ?>>&nbsp;<label for="subject4">選択肢4</label></li>
+										<li><input type="radio" id="subject1" name="subject" value="選択肢1" <?php if ( $_SESSION['subject'] == "選択肢1" ) { ?> checked="checked"<?php } ?> class="validate[required]">&nbsp;<label for="subject1">選択肢1</label></li>
+										<li><input type="radio" id="subject2" name="subject" value="選択肢2" <?php if ( $_SESSION['subject'] == "選択肢2" ) { ?> checked="checked"<?php } ?> class="validate[required]">&nbsp;<label for="subject2">選択肢2</label></li>
+										<li><input type="radio" id="subject3" name="subject" value="選択肢3" <?php if ( $_SESSION['subject'] == "選択肢3" ) { ?> checked="checked"<?php } ?> class="validate[required]">&nbsp;<label for="subject3">選択肢3</label></li>
+										<li><input type="radio" id="subject4" name="subject" value="選択肢4" <?php if ( $_SESSION['subject'] == "選択肢4" ) { ?> checked="checked"<?php } ?> class="validate[required]">&nbsp;<label for="subject4">選択肢4</label></li>
 									</ul>
 								</dd>
 							</dl>
@@ -80,7 +80,7 @@
 								<dt><span class="required">セレクトボックス</span></dt>
 								<dd>
 									<p>
-										<select name="selectbox" id="selectbox" value="">
+										<select name="selectbox" id="selectbox" class="validate[required]">
 											<option value=""<?php if ( $_SESSION['selectbox'] == "お選びください" ) { ?> selected<?php } ?>>お選びください</option>
 											<option value="選択肢1"<?php if ( $_SESSION['selectbox'] == "選択肢1" ) { ?> selected<?php } ?>>選択肢1</option>
 											<option value="選択肢2"<?php if ( $_SESSION['selectbox'] == "選択肢2" ) { ?> selected<?php } ?>>選択肢2</option>
@@ -130,7 +130,7 @@
 							<dl>
 								<dt><span class="required">お名前</span></dt>
 								<dd>
-									<input type="text" id="full_name" name="full_name" value="<?php echo ( $_SESSION['full_name'] ); ?>" maxlength="255" placeholder="(例） 山田 太郎" title="(例） 山田 太郎">
+									<input type="text" id="full_name" name="full_name" value="<?php echo ( $_SESSION['full_name'] ); ?>" maxlength="255" placeholder="(例） 山田 太郎" title="(例） 山田 太郎" class="validate[required]">
 								</dd>
 							</dl>
 							<dl>
@@ -150,31 +150,31 @@
 							<dl>
 								<dt><span class="required">お電話番号</span></dt>
 								<dd>
-									<input type="text" id="tel" name="tel" value="<?php echo ( $_SESSION['tel'] ); ?>" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb">
+									<input type="text" id="tel" name="tel" value="<?php echo ( $_SESSION['tel'] ); ?>" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb validate[required,phone]">
 								</dd>
 							</dl>
 							<dl>
 								<dt><span>FAX</span></dt>
 								<dd>
-									<input type="text" id="fax" name="fax" value="<?php echo ( $_SESSION['fax'] ); ?>" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb">
+									<input type="text" id="fax" name="fax" value="<?php echo ( $_SESSION['fax'] ); ?>" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb validate[optional,custom[phone]]">
 								</dd>
 							</dl>
 							<dl>
 								<dt><span class="required">メールアドレス</span></dt>
 								<dd>
-									<input type="text" id="mail" name="mail" value="<?php echo ( $_SESSION['mail'] ); ?>" maxlength="255" placeholder="(例) sample@example.com" title="(例) sample@example.com" style="ime-mode: disabled;" class="longarea restrict_mb">
+									<input type="text" id="mail" name="mail" value="<?php echo ( $_SESSION['mail'] ); ?>" maxlength="255" placeholder="(例) sample@example.com" title="(例) sample@example.com" style="ime-mode: disabled;" class="longarea restrict_mb validate[required,custom[email]]">
 								</dd>
 							</dl>
 							<dl>
 								<dt><span class="required">メールアドレス（確認用）</span></dt>
 								<dd>
-									<input type="text" id="mail_confirm" name="mail_confirm" value="<?php echo ( $_SESSION['mail_confirm'] ); ?>" maxlength="255" placeholder="(例) sample@example.com" title="(例) sample@example.com" style="ime-mode: disabled;" class="longarea restrict_mb">
+									<input type="text" id="mail_confirm" name="mail_confirm" value="<?php echo ( $_SESSION['mail_confirm'] ); ?>" maxlength="255" placeholder="(例) sample@example.com" title="(例) sample@example.com" style="ime-mode: disabled;" class="longarea restrict_mb validate[required,custom[email],equals[mail]]">
 								</dd>
 							</dl>
 							<dl>
 								<dt><span class="required">お問い合わせ内容</span></dt>
 								<dd>
-									<textarea name="detail" id="detail"><?php echo ( $_SESSION['detail'] ); ?></textarea>
+									<textarea name="detail" id="detail"class="validate[required]"><?php echo ( $_SESSION['detail'] ); ?></textarea>
 								</dd>
 							</dl>
 						</div>
@@ -190,8 +190,15 @@
 		<p class="copyright">Copyright 2015 &copy; form-sample All rights reserved.</p>
 	</div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="./js/jquery.validationEngine-ja.js" type="text/javascript"></script>
+<script src="./js/jquery.validationEngine.js" type="text/javascript"></script>
 <script>
-	jQuery(function($){
+	(function($){
+		$("#contact_form").validationEngine();
+	})(jQuery);
+</script>
+<script>
+	(function($){
 		$(".restrict_mb").change(function(){
 			var str = $(this).val();
 			str = str.replace( /[Ａ-Ｚａ-ｚ０-９－！”＃＄％＆’（）＝＜＞，．？＿［］｛｝＠＾～￥]/g, function(s) {
@@ -199,7 +206,7 @@
 			});
 			$(this).val(str);
 		}).change();
-	});
+	})(jQuery);
 </script>
 </body>
 </html>
