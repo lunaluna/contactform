@@ -74,7 +74,7 @@
 								</dd>
 							</dl>
 							<dl>
-								<dt><span class="require">セレクトボックス</span></dt>
+								<dt><span class="required">セレクトボックス</span></dt>
 								<dd>
 									<p>
 										<select name="selectbox" id="selectbox" value="">
