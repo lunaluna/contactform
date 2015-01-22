@@ -76,8 +76,13 @@
                 },
                 "phone": {
                     // credit: jquery.h5validate.js / orefalo
-                    "regex": /^([\+][0-9]{1,3}([ \.\-])?)?([\(][0-9]{1,6}[\)])?([0-9 \.\-]{1,32})(([A-Za-z \:]{1,11})?[0-9]{1,4}?)$/,
+                    // "regex": /^([\+][0-9]{1,3}([ \.\-])?)?([\(][0-9]{1,6}[\)])?([0-9 \.\-]{1,32})(([A-Za-z \:]{1,11})?[0-9]{1,4}?)$/,
+                    "regex": /^0\d{1,4}(-)?\d{2,4}(-)?\d{3,4}$/,
                     "alertText": "* 電話番号が正しくありません"
+                },
+                "fax": {
+                    "regex": /^0\d{1,4}(-)?\d{2,4}(-)?\d{3,4}$/,
+                    "alertText": "* FAX番号が正しくありません"
                 },
                 "email": {
                     // Shamelessly lifted from Scott Gonzalez via the Bassistance Validation plugin http://projects.scottsplayground.com/email_address_validation/
@@ -140,7 +145,8 @@
                 },
                 "postal": {
                      // credit: jquery.h5validate.js / orefalo
-                    "regex": /^\d{3}-\d{4}$|^\d{7}$/,
+                    // "regex": /^\d{3}-\d{4}$|^\d{7}$/,
+                    "regex": /^\d{3}(-)?\d{4}$/,
                     "alertText": "* 郵便番号が正しくありません"
                 }
             };

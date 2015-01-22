@@ -168,7 +168,7 @@
 							<dl class="clearfix">
 								<dt><span class="required">お電話番号</span></dt>
 								<dd>
-									<input type="text" id="tel" name="tel" value="<?php echo ( $_SESSION['tel'] ); ?>" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb validate[required,phone]">
+									<input type="text" id="tel" name="tel" value="<?php echo ( $_SESSION['tel'] ); ?>" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb validate[required,custom[phone]]">
 								</dd>
 							</dl>
 							<dl class="clearfix">
