@@ -1,4 +1,6 @@
 <?php
+	// 変数の宣言エラーが出る場合にコメントアウトを外す
+
 	if ( !isset( $err ) ) $err = null;
 	if ( !isset( $_POST['subject'] ) ) $_POST['subject'] = null;
 	if ( !isset( $_POST['selectbox'] ) ) $_POST['selectbox'] = null;
