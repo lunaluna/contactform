@@ -1,11 +1,11 @@
 <?php
-if (!$_POST) {
+session_start();
+if ( $_SESSION['full_name'] == "" ) {
 	header( 'Location: ./index.php' );
 	exit;
 }
 include( "inc/mail_settings.php" );
 	if ( !isset( $select_checkbox ) ) $select_checkbox = null;
-session_start();
 
 //++++++++++機種依存文字対応++++++++++
 
@@ -15,12 +15,16 @@ mb_language( "japanese" );
 mb_internal_encoding( "UTF-8" );
 
 //チェックボックスの値を配列から取得
-$checkbox = $_SESSION['checkbox'];
-foreach ( $checkbox as $value ) {
-	$value = htmlspecialchars( $value, ENT_QUOTES, "UTF-8" );
-	$select_checkbox .= $value . "、";
+if ( isset( $_SESSION['checkbox'] ) ) {
+	$checkbox = $_SESSION['checkbox'];
+	foreach ( $checkbox as $value ) {
+		$value = htmlspecialchars( $value, ENT_QUOTES, "UTF-8" );
+		$select_checkbox .= $value . "、";
+	}
+	$checkbox_list = rtrim( $select_checkbox, "、" );
+} else {
+	$checkbox_list = null;
 }
-$checkbox_list = rtrim( $select_checkbox, "、" );
 
 //半角カタカナを全角に・全角数字を半角に
 $company = htmlspecialchars( $_SESSION['company'], ENT_QUOTES, "UTF-8" );
@@ -81,7 +85,7 @@ $profile = sprintf($prof_format,
 	$address,
 	htmlspecialchars( $_SESSION['tel'], ENT_QUOTES, "UTF-8" ),
 	htmlspecialchars( $_SESSION['fax'], ENT_QUOTES, "UTF-8" ),
-	htmlspecialchars( $_POST['mail'], ENT_QUOTES, "UTF-8" ),
+	htmlspecialchars( $_SESSION['mail'], ENT_QUOTES, "UTF-8" ),
 	$detail
 );
 
