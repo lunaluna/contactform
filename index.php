@@ -2,21 +2,21 @@
 	// 変数の宣言エラーが出る場合にコメントアウトを外す
 
 	if ( !isset( $err ) ) $err = null;
-	if ( !isset( $_SESSION['subject'] ) ) $_SESSION['subject'] = null;
-	if ( !isset( $_SESSION['selectbox'] ) ) $_SESSION['selectbox'] = null;
-	if ( !isset( $_SESSION['checkbox'] ) ) $_SESSION['checkbox'] = null;
+	if ( !isset( $_POST['subject'] ) ) $_POST['subject'] = null;
+	if ( !isset( $_POST['selectbox'] ) ) $_POST['selectbox'] = null;
+	if ( !isset( $_POST['checkbox'] ) ) $_POST['checkbox'] = null;
 	if ( !isset( $checked1 ) ) $checked1 = null;
 	if ( !isset( $checked2 ) ) $checked2 = null;
 	if ( !isset( $checked3 ) ) $checked3 = null;
-	if ( !isset( $_SESSION['company'] ) ) $_SESSION['company'] = null;
-	if ( !isset( $_SESSION['full_name'] ) ) $_SESSION['full_name'] = null;
-	if ( !isset( $_SESSION['pref'] ) ) $_SESSION['pref'] = null;
-	if ( !isset( $_SESSION['address'] ) ) $_SESSION['address'] = null;
-	if ( !isset( $_SESSION['tel'] ) ) $_SESSION['tel'] = null;
-	if ( !isset( $_SESSION['fax'] ) ) $_SESSION['fax'] = null;
-	if ( !isset( $_SESSION['mail'] ) ) $_SESSION['mail'] = null;
-	if ( !isset( $_SESSION['mail_confirm'] ) ) $_SESSION['mail_confirm'] = null;
-	if ( !isset( $_SESSION['detail'] ) ) $_SESSION['detail'] = null;
+	if ( !isset( $_POST['company'] ) ) $_POST['company'] = null;
+	if ( !isset( $_POST['full_name'] ) ) $_POST['full_name'] = null;
+	if ( !isset( $_POST['pref'] ) ) $_POST['pref'] = null;
+	if ( !isset( $_POST['address'] ) ) $_POST['address'] = null;
+	if ( !isset( $_POST['tel'] ) ) $_POST['tel'] = null;
+	if ( !isset( $_POST['fax'] ) ) $_POST['fax'] = null;
+	if ( !isset( $_POST['mail'] ) ) $_POST['mail'] = null;
+	if ( !isset( $_POST['mail_confirm'] ) ) $_POST['mail_confirm'] = null;
+	if ( !isset( $_POST['detail'] ) ) $_POST['detail'] = null;
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +46,7 @@
 		<div class="mainarea">
 			<div class="section contents_contact">
 
-			<?php if ( ( $err == "" ) && ( empty( $_SESSION['revision'] ) ) ) : ?>
+			<?php if ( ( $err == "" ) && ( empty( $_POST['revision'] ) ) ) : ?>
 				<div class="contact_info">
 					<p>ご依頼内容を、以下にご入力下さい。のちほど担当者よりご連絡いたします。</p>
 					<p>お急ぎの際はお電話にてお問い合わせください。</p>
@@ -75,10 +75,10 @@
 										<li><input type="radio" id="subject3" name="subject" value="">&nbsp;<label for="subject3">選択肢3</label></li>
 										<li><input type="radio" id="subject4" name="subject" value="">&nbsp;<label for="subject4">選択肢4</label></li>
 */ ?>
-										<li><input type="radio" id="subject1" name="subject" value="選択肢1" <?php if ( $_SESSION['subject'] == "選択肢1" ) { ?> checked="checked"<?php } ?>>&nbsp;<label for="subject1">選択肢1</label></li>
-										<li><input type="radio" id="subject2" name="subject" value="選択肢2" <?php if ( $_SESSION['subject'] == "選択肢2" ) { ?> checked="checked"<?php } ?>>&nbsp;<label for="subject2">選択肢2</label></li>
-										<li><input type="radio" id="subject3" name="subject" value="選択肢3" <?php if ( $_SESSION['subject'] == "選択肢3" ) { ?> checked="checked"<?php } ?>>&nbsp;<label for="subject3">選択肢3</label></li>
-										<li><input type="radio" id="subject4" name="subject" value="選択肢4" <?php if ( $_SESSION['subject'] == "選択肢4" ) { ?> checked="checked"<?php } ?>>&nbsp;<label for="subject4">選択肢4</label></li>
+										<li><input type="radio" id="subject1" name="subject" value="選択肢1" <?php if ( $_POST['subject'] == "選択肢1" ) { ?> checked="checked"<?php } ?>>&nbsp;<label for="subject1">選択肢1</label></li>
+										<li><input type="radio" id="subject2" name="subject" value="選択肢2" <?php if ( $_POST['subject'] == "選択肢2" ) { ?> checked="checked"<?php } ?>>&nbsp;<label for="subject2">選択肢2</label></li>
+										<li><input type="radio" id="subject3" name="subject" value="選択肢3" <?php if ( $_POST['subject'] == "選択肢3" ) { ?> checked="checked"<?php } ?>>&nbsp;<label for="subject3">選択肢3</label></li>
+										<li><input type="radio" id="subject4" name="subject" value="選択肢4" <?php if ( $_POST['subject'] == "選択肢4" ) { ?> checked="checked"<?php } ?>>&nbsp;<label for="subject4">選択肢4</label></li>
 									</ul>
 								</dd>
 							</dl>
@@ -95,10 +95,10 @@
 											<option value="">選択肢4</option>
 */ ?>
 											<option value="">お選びください</option>
-											<option value="選択肢1"<?php if ( $_SESSION['selectbox'] == "選択肢1" ) { ?> selected<?php } ?>>選択肢1</option>
-											<option value="選択肢2"<?php if ( $_SESSION['selectbox'] == "選択肢2" ) { ?> selected<?php } ?>>選択肢2</option>
-											<option value="選択肢3"<?php if ( $_SESSION['selectbox'] == "選択肢3" ) { ?> selected<?php } ?>>選択肢3</option>
-											<option value="選択肢4"<?php if ( $_SESSION['selectbox'] == "選択肢4" ) { ?> selected<?php } ?>>選択肢4</option>
+											<option value="選択肢1"<?php if ( $_POST['selectbox'] == "選択肢1" ) { ?> selected<?php } ?>>選択肢1</option>
+											<option value="選択肢2"<?php if ( $_POST['selectbox'] == "選択肢2" ) { ?> selected<?php } ?>>選択肢2</option>
+											<option value="選択肢3"<?php if ( $_POST['selectbox'] == "選択肢3" ) { ?> selected<?php } ?>>選択肢3</option>
+											<option value="選択肢4"<?php if ( $_POST['selectbox'] == "選択肢4" ) { ?> selected<?php } ?>>選択肢4</option>
 										</select>
 									</p>
 								</dd>
@@ -109,17 +109,17 @@
 									<ul class="clear-fix">
 <?php /*
 									<?php
-										if ( !isset( $_SESSION['checkbox'] ) ) {
-											$_SESSION['checkbox'] = null;
+										if ( !isset( $_POST['checkbox'] ) ) {
+											$_POST['checkbox'] = null;
 										} else {
-											for ( $i = 0; $i < count( $_SESSION['checkbox'] ); $i++ ) {
-												if ( ( $_SESSION['checkbox'][$i] ) == "選択肢1" ) {
+											for ( $i = 0; $i < count( $_POST['checkbox'] ); $i++ ) {
+												if ( ( $_POST['checkbox'][$i] ) == "選択肢1" ) {
 													if ( !isset( $checked1 ) ) $checked1 = null;
 													$checked1 = "checked";
-												} elseif ( ( $_SESSION['checkbox'][$i] ) == "選択肢2" ) {
+												} elseif ( ( $_POST['checkbox'][$i] ) == "選択肢2" ) {
 													if ( !isset( $checked2 ) ) $checked2 = null;
 													$checked2 = "checked";
-												} elseif ( ( $_SESSION['checkbox'][$i] ) == "選択肢3" ) {
+												} elseif ( ( $_POST['checkbox'][$i] ) == "選択肢3" ) {
 													if ( !isset( $checked3 ) ) $checked3 = null;
 													$checked3 = "checked";
 												} else {
@@ -140,17 +140,17 @@
 */ ?>
 
 									<?php
-										if ( !isset( $_SESSION['checkbox'] ) ) {
-											$_SESSION['checkbox'] = null;
+										if ( !isset( $_POST['checkbox'] ) ) {
+											$_POST['checkbox'] = null;
 										} else {
-											for ( $i = 0; $i < count( $_SESSION['checkbox'] ); $i++ ) {
-												if ( ( $_SESSION['checkbox'][$i] ) == "選択肢1" ) {
+											for ( $i = 0; $i < count( $_POST['checkbox'] ); $i++ ) {
+												if ( ( $_POST['checkbox'][$i] ) == "選択肢1" ) {
 													if ( !isset( $checked1 ) ) $checked1 = null;
 													$checked1 = "checked";
-												} elseif ( ( $_SESSION['checkbox'][$i] ) == "選択肢2" ) {
+												} elseif ( ( $_POST['checkbox'][$i] ) == "選択肢2" ) {
 													if ( !isset( $checked2 ) ) $checked2 = null;
 													$checked2 = "checked";
-												} elseif ( ( $_SESSION['checkbox'][$i] ) == "選択肢3" ) {
+												} elseif ( ( $_POST['checkbox'][$i] ) == "選択肢3" ) {
 													if ( !isset( $checked3 ) ) $checked3 = null;
 													$checked3 = "checked";
 												} else {
@@ -183,7 +183,7 @@
 <?php /*
 									<input type="text" name="company" value="" maxlength="255" placeholder="(例） 株式会社 ◯◯◯◯" title="(例） 株式会社 ◯◯◯◯">
 */ ?>
-									<input type="text" id="company" name="company" value="<?php echo ($_SESSION['company']); ?>" maxlength="255" placeholder="(例） 株式会社 ◯◯◯◯" title="(例） 株式会社 ◯◯◯◯">
+									<input type="text" id="company" name="company" value="<?php echo ($_POST['company']); ?>" maxlength="255" placeholder="(例） 株式会社 ◯◯◯◯" title="(例） 株式会社 ◯◯◯◯">
 								</dd>
 							</dl>
 							<dl>
@@ -192,7 +192,7 @@
 <?php /*
 									<input type="text" name="full_name" value="" maxlength="255" placeholder="(例） 山田 太郎" title="(例） 山田 太郎">
 */ ?>
-									<input type="text" id="full_name" name="full_name" value="<?php echo ($_SESSION['full_name']); ?>" maxlength="255" placeholder="(例） 山田 太郎" title="(例） 山田 太郎">
+									<input type="text" id="full_name" name="full_name" value="<?php echo ($_POST['full_name']); ?>" maxlength="255" placeholder="(例） 山田 太郎" title="(例） 山田 太郎">
 								</dd>
 							</dl>
 							<dl>
@@ -209,7 +209,7 @@
 <?php /*
 									<input type="text" name="address" value="" maxlength="255" placeholder="(例） 港区六本木6－10－1 六本木ヒルズ森タワー 53F" title="(例） 港区六本木6－10－1 六本木ヒルズ森タワー 53F" class="longarea">
 */ ?>
-									<input type="text" id="address" name="address" value="<?php echo ($_SESSION['address']); ?>" maxlength="255" placeholder="(例） 港区六本木6－10－1 六本木ヒルズ森タワー 53F" title="(例） 港区六本木6－10－1 六本木ヒルズ森タワー 53F" class="longarea">
+									<input type="text" id="address" name="address" value="<?php echo ($_POST['address']); ?>" maxlength="255" placeholder="(例） 港区六本木6－10－1 六本木ヒルズ森タワー 53F" title="(例） 港区六本木6－10－1 六本木ヒルズ森タワー 53F" class="longarea">
 								</dd>
 							</dl>
 							<dl>
@@ -218,7 +218,7 @@
 <?php /*
 									<input type="text" name="tel" value="" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb">
 */ ?>
-									<input type="text" id="tel" name="tel" value="<?php echo ($_SESSION['tel']); ?>" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb">
+									<input type="text" id="tel" name="tel" value="<?php echo ($_POST['tel']); ?>" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb">
 								</dd>
 							</dl>
 							<dl>
@@ -227,7 +227,7 @@
 <?php /*
 									<input type="text" name="fax" value="" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb">
 */ ?>
-									<input type="text" id="fax" name="fax" value="<?php echo ($_SESSION['fax']); ?>" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb">
+									<input type="text" id="fax" name="fax" value="<?php echo ($_POST['fax']); ?>" maxlength="30" placeholder="(例) 03-xxxx-xxxx" title="(例) 03-xxxx-xxxx" style="ime-mode: disabled;" class="restrict_mb">
 								</dd>
 							</dl>
 							<dl>
@@ -236,7 +236,7 @@
 <?php /*
 									<input type="text" name="mail" value="" maxlength="255" placeholder="(例) sample@example.com" title="(例) sample@example.com" style="ime-mode: disabled;" class="longarea restrict_mb">
 */ ?>
-									<input type="text" id="mail" name="mail" value="<?php if ( isset( $_SESSION['mail'] ) ) echo ($_SESSION['mail']); ?>" maxlength="255" placeholder="(例) sample@example.com" title="(例) sample@example.com" style="ime-mode: disabled;" class="longarea restrict_mb">
+									<input type="text" id="mail" name="mail" value="<?php if ( isset( $_POST['mail'] ) ) echo ($_POST['mail']); ?>" maxlength="255" placeholder="(例) sample@example.com" title="(例) sample@example.com" style="ime-mode: disabled;" class="longarea restrict_mb">
 								</dd>
 							</dl>
 							<dl>
@@ -245,7 +245,7 @@
 <?php /*
 									<input type="text" name="mail_confirm" value="" maxlength="255" placeholder="(例) sample@example.com" title="(例) sample@example.com" style="ime-mode: disabled;" class="longarea restrict_mb">
 */ ?>
-									<input type="text" id="mail_confirm" name="mail_confirm" value="<?php if ( isset( $_SESSION['mail_confirm'] ) ) echo ($_SESSION['mail_confirm']); ?>" maxlength="255" placeholder="(例) sample@example.com" title="(例) sample@example.com" style="ime-mode: disabled;" class="longarea restrict_mb">
+									<input type="text" id="mail_confirm" name="mail_confirm" value="<?php if ( isset( $_POST['mail_confirm'] ) ) echo ($_POST['mail_confirm']); ?>" maxlength="255" placeholder="(例) sample@example.com" title="(例) sample@example.com" style="ime-mode: disabled;" class="longarea restrict_mb">
 								</dd>
 							</dl>
 							<dl>
@@ -254,7 +254,7 @@
 <?php /*
 									<textarea name="detail"></textarea>
 */ ?>
-									<textarea name="detail" id="detail"><?php echo ($_SESSION['detail']); ?></textarea>
+									<textarea name="detail" id="detail"><?php echo ($_POST['detail']); ?></textarea>
 								</dd>
 							</dl>
 						</div>
