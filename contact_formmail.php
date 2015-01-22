@@ -33,6 +33,9 @@ $company = mb_convert_kana( $company,"nKV", "UTF-8" );
 $full_name = htmlspecialchars( $_SESSION['full_name'], ENT_QUOTES, "UTF-8" );
 $full_name = mb_convert_kana( $full_name,"nKV", "UTF-8" );
 
+$ruby = htmlspecialchars( $_SESSION['ruby'], ENT_QUOTES, "UTF-8" );
+$ruby = mb_convert_kana( $ruby,"nKV", "UTF-8" );
+
 $address = htmlspecialchars( $_SESSION['address'], ENT_QUOTES, "UTF-8" );
 $address = mb_convert_kana( $address,"nKV", "UTF-8" );
 
@@ -44,6 +47,7 @@ require_once( dirname(__FILE__) . '/inc/replaceStrKishuizon.php' );
 // 機種依存文字置き換え
 $company = replaceStrKishuizon( $company );
 $full_name = replaceStrKishuizon( $full_name );
+$ruby = replaceStrKishuizon( $ruby );
 $address = replaceStrKishuizon( $address );
 
 
@@ -68,6 +72,8 @@ $prof_format = "
 チェックボックス ： %s
 御社名 ： %s
 お名前 ： %s 様
+ふりがな ： %s さま
+郵便番号 ： %s
 ご住所 ： %s %s
 お電話番号 ： %s
 FAX ： %s
@@ -81,6 +87,8 @@ $profile = sprintf($prof_format,
 	$checkbox_list,
 	$company,
 	$full_name,
+	$ruby,
+	htmlspecialchars( $_SESSION['postal'], ENT_QUOTES, "UTF-8" ),
 	htmlspecialchars( $_SESSION['pref'], ENT_QUOTES, "UTF-8" ),
 	$address,
 	htmlspecialchars( $_SESSION['tel'], ENT_QUOTES, "UTF-8" ),

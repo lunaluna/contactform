@@ -68,6 +68,14 @@
 								<dd><?php echo htmlspecialchars( $_SESSION['full_name'], ENT_QUOTES, "UTF-8" ); ?> 様</dd>
 							</dl>
 							<dl class="clearfix">
+								<dt>ふりがな</dt>
+								<dd><?php echo htmlspecialchars( $_SESSION['ruby'], ENT_QUOTES, "UTF-8" ); if ( $_SESSION['ruby'] ) echo ' さま'; ?></dd>
+							</dl>
+							<dl class="clearfix">
+								<dt>郵便番号</dt>
+								<dd><?php echo htmlspecialchars( $_SESSION['postal'], ENT_QUOTES, "UTF-8" ); ?></dd>
+							</dl>
+							<dl class="clearfix">
 								<dt>ご住所</dt>
 								<dd><?php echo htmlspecialchars( $_SESSION['pref'], ENT_QUOTES, "UTF-8" ); echo htmlspecialchars( $_SESSION['address'], ENT_QUOTES, "UTF-8" ); ?></dd>
 							</dl>

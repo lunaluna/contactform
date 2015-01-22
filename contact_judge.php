@@ -18,6 +18,8 @@ if ( $err == "" ) {
 
 	if ( $_SESSION['full_name'] == "" ) { $err .= "<li>※お名前が入力されていません。</li>\n"; }
 
+	if ( $_SESSION['postal'] == "" ) { $err .= "<li>※郵便番号が入力されていません。</li>\n"; }
+
 	if ( $_SESSION['tel'] == "" ) {
 		$err .= "<li>※お電話番号が入力されていません。</li>\n";
 	} else {

@@ -10,6 +10,8 @@
 	if ( !isset( $checked3 ) ) $checked3 = null;
 	if ( !isset( $_SESSION['company'] ) ) $_SESSION['company'] = null;
 	if ( !isset( $_SESSION['full_name'] ) ) $_SESSION['full_name'] = null;
+	if ( !isset( $_SESSION['ruby'] ) ) $_SESSION['ruby'] = null;
+	if ( !isset( $_SESSION['postal'] ) ) $_SESSION['postal'] = null;
 	if ( !isset( $_SESSION['pref'] ) ) $_SESSION['pref'] = null;
 	if ( !isset( $_SESSION['address'] ) ) $_SESSION['address'] = null;
 	if ( !isset( $_SESSION['tel'] ) ) $_SESSION['tel'] = null;
@@ -35,6 +37,9 @@
 <link rel="stylesheet" href="./css/validationEngine.jquery.css">
 
 <title>お問い合わせ | 問い合わせフォームサンプル</title>
+
+<script src="http://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3.js" charset="UTF-8"></script>
+
 </head>
 <body class="contact">
 	<div class="wrapper">
@@ -132,6 +137,18 @@
 								<dt><span class="required">お名前</span></dt>
 								<dd>
 									<input type="text" id="full_name" name="full_name" value="<?php echo ( $_SESSION['full_name'] ); ?>" maxlength="255" placeholder="(例） 山田 太郎" title="(例） 山田 太郎" class="validate[required]">
+								</dd>
+							</dl>
+							<dl class="clearfix">
+								<dt><span class="required">ふりがな</span></dt>
+								<dd>
+									<input type="text" id="ruby" name="ruby" value="<?php echo ( $_SESSION['ruby'] ); ?>" maxlength="255" placeholder="(例） やまだ たろう" title="(例） やまだ たろう">
+								</dd>
+							</dl>
+							<dl class="clearfix">
+								<dt><span class="required">郵便番号</span></dt>
+								<dd>
+									<input type="text" id="postal" name="postal" value="<?php echo ( $_SESSION['postal'] ); ?>" maxlength="8" placeholder="(例） 106-6153" title="(例） 106-6153" class="validate[required,custom[postal]]"  onKeyUp="AjaxZip3.zip2addr(this,'','pref','address');">
 								</dd>
 							</dl>
 							<dl class="clearfix">
