@@ -3,10 +3,11 @@ if (!$_POST) {
 	header( 'Location: ./index.php' );
 	exit;
 }
-
 include( "inc/mail_settings.php" );
-
+	if ( !isset( $select_checkbox ) ) $select_checkbox = null;
 session_start();
+
+// var_dump($_SESSION);
 
 //++++++++++機種依存文字対応++++++++++
 
@@ -15,6 +16,14 @@ session_start();
 mb_language( "japanese" );
 mb_internal_encoding( "UTF-8" );
 
+//チェックボックスの値を配列から取得
+$checkbox = $_SESSION['checkbox'];
+// $count_checkbox = count( $checkbox );
+foreach ( $checkbox as $value ) {
+	$value = htmlspecialchars( $value, ENT_QUOTES, "UTF-8" );
+	$select_checkbox .= $value . "、";
+}
+$checkbox_list = rtrim( $select_checkbox, "、" );
 
 //半角カタカナを全角に・全角数字を半角に
 $company = htmlspecialchars( $_SESSION['company'], ENT_QUOTES, "UTF-8" );
@@ -50,10 +59,54 @@ $detail = replaceStrKishuizon( $detail );
 
 // ============ クライアント様向け詳細内容(フォームの入力項目)ここから ============
 
+// $check_count = count( $_POST['checkbox'] );
+
+/*
 $prof_format = "
 お問い合わせ項目 ： %s
 セレクトボックス ： %s
-チェックボックス ： %s %s %s
+チェックボックス ：";
+
+for ( $i = 0; $i < count( $_SESSION['checkbox'] ); $i++ ) {
+	$prof_format .= " %s";
+}
+
+$prof_format .= "
+御社名 ： %s
+お名前 ： %s 様
+ご住所 ： %s %s
+お電話番号 ： %s
+FAX ： %s
+メールアドレス ： %s
+お問い合わせ内容 ： %s
+";
+
+$prof_vars = htmlspecialchars( $_SESSION['subject'], ENT_QUOTES, "UTF-8" ) . ",";
+$prof_vars .= htmlspecialchars( $_SESSION['selectbox'], ENT_QUOTES, "UTF-8" ) . ",";
+
+	htmlspecialchars( $_SESSION['checkbox'][0], ENT_QUOTES, "UTF-8" ),
+	htmlspecialchars( $_SESSION['checkbox'][1], ENT_QUOTES, "UTF-8" ),
+	htmlspecialchars( $_SESSION['checkbox'][2], ENT_QUOTES, "UTF-8" ),
+
+for ( $i = 0; $i < count( $_SESSION['checkbox'] ); $i++ ) {
+	$prof_vars .= htmlspecialchars( $_SESSION['checkbox'][$i], ENT_QUOTES, "UTF-8" ) . ",";
+}
+$prof_vars .= $company . ",";
+$prof_vars .= $full_name . ",";
+$prof_vars .= htmlspecialchars( $_SESSION['pref'], ENT_QUOTES, "UTF-8" ) . ",";
+$prof_vars .= $address . ",";
+$prof_vars .= htmlspecialchars( $_SESSION['tel'], ENT_QUOTES, "UTF-8" ) . ",";
+$prof_vars .= htmlspecialchars( $_SESSION['fax'], ENT_QUOTES, "UTF-8" ) . ",";
+$prof_vars .= htmlspecialchars( $_SESSION['mail'], ENT_QUOTES, "UTF-8" ) . ",";
+$prof_vars .= $detail;
+
+$profile = sprintf( $prof_format, $prof_vars );
+*/
+
+$prof_format = "
+お問い合わせ項目 ： %s
+セレクトボックス ： %s
+チェックボックス ： %s
 御社名 ： %s
 お名前 ： %s 様
 ご住所 ： %s %s
@@ -66,18 +119,22 @@ FAX ： %s
 $profile = sprintf($prof_format,
 	htmlspecialchars( $_SESSION['subject'], ENT_QUOTES, "UTF-8" ),
 	htmlspecialchars( $_SESSION['selectbox'], ENT_QUOTES, "UTF-8" ),
-	htmlspecialchars( $_SESSION['checkbox'][0], ENT_QUOTES, "UTF-8" ),
-	htmlspecialchars( $_SESSION['checkbox'][1], ENT_QUOTES, "UTF-8" ),
-	htmlspecialchars( $_SESSION['checkbox'][2], ENT_QUOTES, "UTF-8" ),
+	$checkbox_list,
+	// htmlspecialchars( $_SESSION['checkbox'][2], ENT_QUOTES, "UTF-8" ),
 	$company,
 	$full_name,
 	htmlspecialchars( $_SESSION['pref'], ENT_QUOTES, "UTF-8" ),
 	$address,
 	htmlspecialchars( $_SESSION['tel'], ENT_QUOTES, "UTF-8" ),
 	htmlspecialchars( $_SESSION['fax'], ENT_QUOTES, "UTF-8" ),
-	htmlspecialchars( $_SESSION['mail'], ENT_QUOTES, "UTF-8" ),
+	htmlspecialchars( $_POST['mail'], ENT_QUOTES, "UTF-8" ),
 	$detail
 );
+
+// var_dump($prof_format);
+
+// var_dump($prof_vars);
+
 
 
 // ============ クライアント様向け詳細内容(フォームの入力項目)ここまで ============

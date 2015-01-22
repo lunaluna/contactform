@@ -302,6 +302,7 @@ input:-ms-input-placeholder {
 	text-decoration: none;
 }
 
+/*
 .breadclumb li:first-child {
 	padding-left: 22px;
 	background: url(./images/icon_home.png) no-repeat left center;
@@ -310,6 +311,12 @@ input:-ms-input-placeholder {
 .breadclumb li+li {
 	padding-left: 25px;
 	background: url(./images/icon_arrow01.png) no-repeat 9px center;
+}
+ */
+
+.breadclumb li+li:before {
+	content: ">";
+	padding-left: 3px;
 }
 
 

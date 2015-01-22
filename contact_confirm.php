@@ -1,8 +1,12 @@
 <?php
+/*
 if (!$_POST) {
 	header( 'Location: ./index.php' );
 	exit;
 }
+*/
+session_start();
+$_SESSION = $_POST;
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +43,9 @@ if (!$_POST) {
 				</div>
 				<div class="area_contactform">
 					<h1 class="title_contactformtext">お問い合わせフォーム</h1>
+<?php /*
 					<form method="post" action="./contact_formmail.php" name="contact_formmail" class="contact_formmail">
+*/ ?>
 						<div class="form_table form_confirm">
 							<dl>
 								<dt>お問い合わせ項目</dt>
@@ -94,16 +100,22 @@ if (!$_POST) {
 								<dd><?php echo nl2br( htmlspecialchars( $_POST['detail'], ENT_QUOTES, "UTF-8" ) ); ?></dd>
 							</dl>
 						</div>
+<?php /*
 						<div id="btn_submitarea" class="clear-fix">
 							<div id="contact_back">
+
 								<a href="javascript:history.back();"><button>&laquo; 入力ページへ戻る</button></a>
+
+								<a href="#" onclick="javascript:window.history.back(-1);return false;">&laquo; 入力ページへ戻る</a>
 							</div>
 							<div id="contact_formmail">
 								<button type="submit">&raquo; 入力内容を送信する</button>
 							</div>
 						</div>
 					</form>
-<?php /*
+*/ ?>
+<?php /**/ ?>
+					<div class="form_table form_confirm">
 						<form method="post" action="./index.php" name="contact_back" class="contact_back">
 							<input type="hidden" id="subject" name="subject" value="<?php echo htmlspecialchars( $_POST['subject'], ENT_QUOTES, "UTF-8" ); ?>">
 							<input type="hidden" id="selectbox" name="selectbox" value="<?php echo htmlspecialchars( $_POST['selectbox'], ENT_QUOTES, "UTF-8" ); ?>">
@@ -142,7 +154,8 @@ if (!$_POST) {
 								<button type="submit">&raquo; 入力内容を送信する</button>
 							</div>
 						</form>
-*/ ?>
+					</div>
+<?php /**/ ?>
 				</div>
 			</div>
 		</div>
