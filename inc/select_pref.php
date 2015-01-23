@@ -6,7 +6,7 @@
 
 	foreach ($prefs as $pref) {
 		echo '<option value="'. $pref .'"';
-		if ($pref == $_POST['pref']) {
+		if ( $pref == $_SESSION['pref'] ) {
 			echo ' selected="selected"';
 		}
 		echo '>'. $pref .'</option>';

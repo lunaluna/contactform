@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -21,16 +22,16 @@
 				<h2 class="header_logo"><a href="./index.php">問い合わせフォームサンプル</a></h2>
 			</div>
 		</div>
-		<ul class="breadclumb">
+		<ul class="breadclumb clearfix">
 			<li><a href="./index.php">TOP</a></li>
 			<li>お問い合わせ完了画面</li>
 		</ul>
 		<div class="mainarea">
 			<div class="section contents_contact">
 				<div class="contact_innercontents">
-					<p class="mb_20"><strong>ご入力いただきましてありがとうございました。</strong><br />お問い合わせを送信致しました。</p>
-					<p class="mb_20">折り返し、ご登録いただいたメールアドレス宛てに<br>確認メールが届きます。<br />また、お送りいただきましたお問い合わせには、<br />数日中に弊社の担当者よりご連絡させていただきます。</p>
-					<p class="mb_20">お急ぎの方は下記までご連絡ください。<br /><strong>TEL: 03-xxxx-xxxx<br>FAX: 03-xxxx-xxxx</strong></p>
+					<p><strong>ご入力いただきましてありがとうございました。</strong><br />お問い合わせを送信致しました。</p>
+					<p>折り返し、ご登録いただいたメールアドレス宛てに<br>確認メールが届きます。<br />また、お送りいただきましたお問い合わせには、<br />数日中に弊社の担当者よりご連絡させていただきます。</p>
+					<p>お急ぎの方は下記までご連絡ください。<br /><strong>TEL: 03-xxxx-xxxx<br>FAX: 03-xxxx-xxxx</strong></p>
 					<p class="top_linkbutton">
 						<a href="./index.php"><button>トップページへ戻る</button></a>
 					</p>

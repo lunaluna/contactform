@@ -7,7 +7,8 @@
 
 //クライアント様受信先メールアドレス設定
 // $admin_mailto = "";
-$admin_mailto = "web@lunalunadesign.com";
+// $admin_mailto = "web@lunalunadesign.com";
+$admin_mailto = "saiki@ace-union.net";
 
 // -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 

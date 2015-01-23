@@ -1,14 +1,11 @@
 <?php
-/*
-Template Name: お問い合せ送信処理
-*/
-
-if (!$_POST) {
+session_start();
+if ( $_SESSION['full_name'] == "" ) {
 	header( 'Location: ./index.php' );
 	exit;
 }
-
 include( "inc/mail_settings.php" );
+if ( !isset( $select_checkbox ) ) $select_checkbox = null;
 
 //++++++++++機種依存文字対応++++++++++
 
@@ -17,15 +14,26 @@ include( "inc/mail_settings.php" );
 mb_language( "japanese" );
 mb_internal_encoding( "UTF-8" );
 
+//チェックボックスの値を配列から取得
+if ( isset( $_SESSION['checkbox'] ) ) {
+	$checkbox = $_SESSION['checkbox'];
+	foreach ( $checkbox as $value ) {
+		$value = htmlspecialchars( $value, ENT_QUOTES, "UTF-8" );
+		$select_checkbox .= $value . "、";
+	}
+	$checkbox_list = rtrim( $select_checkbox, "、" );
+} else {
+	$checkbox_list = null;
+}
 
 //半角カタカナを全角に・全角数字を半角に
-$company = htmlspecialchars( $_POST['company'], ENT_QUOTES, "UTF-8" );
+$company = htmlspecialchars( $_SESSION['company'], ENT_QUOTES, "UTF-8" );
 $company = mb_convert_kana( $company,"nKV", "UTF-8" );
 
-$full_name = htmlspecialchars( $_POST['full_name'], ENT_QUOTES, "UTF-8" );
+$full_name = htmlspecialchars( $_SESSION['full_name'], ENT_QUOTES, "UTF-8" );
 $full_name = mb_convert_kana( $full_name,"nKV", "UTF-8" );
 
-$address = htmlspecialchars( $_POST['address'], ENT_QUOTES, "UTF-8" );
+$address = htmlspecialchars( $_SESSION['address'], ENT_QUOTES, "UTF-8" );
 $address = mb_convert_kana( $address,"nKV", "UTF-8" );
 
 
@@ -40,7 +48,7 @@ $address = replaceStrKishuizon( $address );
 
 
 // 問い合わせ詳細の文面から機種依存文字チェック
-$detail = htmlspecialchars( $_POST['detail'], ENT_QUOTES, "UTF-8" );
+$detail = htmlspecialchars( $_SESSION['detail'], ENT_QUOTES, "UTF-8" );
 $detail = mb_convert_kana( $detail,"nKV", "UTF-8" );
 $detail = stripslashes( $detail );
 $detail = replaceStrKishuizon( $detail );
@@ -52,10 +60,12 @@ $detail = replaceStrKishuizon( $detail );
 
 // ============ クライアント様向け詳細内容(フォームの入力項目)ここから ============
 
+
+
 $prof_format = "
 お問い合わせ項目 ： %s
 セレクトボックス ： %s
-チェックボックス ： %s %s %s
+チェックボックス ： %s
 御社名 ： %s
 お名前 ： %s 様
 ご住所 ： %s %s
@@ -66,20 +76,19 @@ FAX ： %s
 ";
 
 $profile = sprintf($prof_format,
-	htmlspecialchars( $_POST['subject'], ENT_QUOTES, "UTF-8" ),
-	htmlspecialchars( $_POST['selectbox'], ENT_QUOTES, "UTF-8" ),
-	htmlspecialchars( $_POST['checkbox'][0], ENT_QUOTES, "UTF-8" ),
-	htmlspecialchars( $_POST['checkbox'][1], ENT_QUOTES, "UTF-8" ),
-	htmlspecialchars( $_POST['checkbox'][2], ENT_QUOTES, "UTF-8" ),
+	htmlspecialchars( $_SESSION['subject'], ENT_QUOTES, "UTF-8" ),
+	htmlspecialchars( $_SESSION['selectbox'], ENT_QUOTES, "UTF-8" ),
+	$checkbox_list,
 	$company,
 	$full_name,
-	htmlspecialchars( $_POST['pref'], ENT_QUOTES, "UTF-8" ),
+	htmlspecialchars( $_SESSION['pref'], ENT_QUOTES, "UTF-8" ),
 	$address,
-	htmlspecialchars( $_POST['tel'], ENT_QUOTES, "UTF-8" ),
-	htmlspecialchars( $_POST['fax'], ENT_QUOTES, "UTF-8" ),
-	htmlspecialchars( $_POST['mail'], ENT_QUOTES, "UTF-8" ),
+	htmlspecialchars( $_SESSION['tel'], ENT_QUOTES, "UTF-8" ),
+	htmlspecialchars( $_SESSION['fax'], ENT_QUOTES, "UTF-8" ),
+	htmlspecialchars( $_SESSION['mail'], ENT_QUOTES, "UTF-8" ),
 	$detail
 );
+
 
 
 // ============ クライアント様向け詳細内容(フォームの入力項目)ここまで ============
@@ -98,8 +107,6 @@ $dstr = date(" Y/m/d(D) H:i:s");			//日付
 $dstr = htmlspecialchars( $dstr, ENT_QUOTES, "UTF-8" );
 $addr = $_SERVER['REMOTE_ADDR'];			//アドレス
 $addr = htmlspecialchars( $addr, ENT_QUOTES, "UTF-8" );
-// $proxy = $_SERVER['HTTP_FORWARDED'];		//proxy
-// $proxy = htmlspecialchars( $proxy, ENT_QUOTES, "UTF-8" );
 $agent = $_SERVER['HTTP_USER_AGENT'];		//agent
 $agent = htmlspecialchars( $agent, ENT_QUOTES, "UTF-8" );
 
@@ -153,12 +160,11 @@ $footer .= "━━━━━━━━━━━━━━━━━━━━━━�
 
 
 //メール送信：クライアント向け受信メール
-$user_mailto = $_POST['mail'];
+$user_mailto = $_SESSION['mail'];
 $user_mailto = htmlspecialchars( $user_mailto, ENT_QUOTES, "UTF-8" );
 $user_mailto = mb_convert_encoding( $user_mailto, "UTF-8", "auto" );
 $admin_subject = "【".$admin_name."】ホームページよりお問い合わせ";
 $admin_subject = mb_convert_encoding( $admin_subject, "UTF-8", "auto" );
-// $admin_header = "受信日時：$dstr\nIPアドレス：$addr\nプロキシ：$proxy\nユーザーエージェント：$agent\n\n";
 $admin_header = "受信日時：$dstr\nIPアドレス：$addr\nユーザーエージェント：$agent\n\n";
 $admin_header = htmlspecialchars( $admin_header, ENT_QUOTES, "UTF-8" );
 $admin_from = mb_encode_mimeheader( mb_convert_encoding( $full_name."様","UTF-8","auto" ) )."<".$user_mailto.">";
@@ -182,6 +188,8 @@ $user_send = mb_send_mail( $user_mailto, $user_subject, $user_result, "From:" . 
 $alert_msg = "";
 
 if ($admin_send && $user_send) :
+
+	session_destroy();
 
 	header( 'location: ./contact_thanks.php' );
 	exit;
