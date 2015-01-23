@@ -1,8 +1,6 @@
 # contactform
 contactform practice
 
-### branch ace-form_validation2
-
 ## target
 
 - エスケープはこれで十分か・余計なエスケープがかかっていないか
